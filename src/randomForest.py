@@ -102,6 +102,7 @@ def learn(Tuples, treeNum, max_depth, numSampleEachT, zoRatio, max_features):
 	testPrediction = 1.0*testPrediction/treeNum
 	return testPrediction
 
+
 def balance(trainFoldSubIndex,trainLable,zoRatio):
 
 	num1 = trainLable.iloc[trainFoldSubIndex][trainLable[0]==1].shape[0]
@@ -122,19 +123,10 @@ def balance(trainFoldSubIndex,trainLable,zoRatio):
 	return ret 
 
 
-
-
-
-
 # Main 
 
+Prediction = learn(Tuples,200,30,0.65,4,45) # learn(Tuples, #tree, max_depth, numSampleEachT, zoRatio, max_features):
 
-# learn(Tuples, treeNum, max_depth, numSampleEachT, zoRatio, max_features):
-testPrediction = learn(Tuples,200,30,0.65,4,45)
-
-
-
-
-outputFile['prediction'] = pd.Series(testPrediction, index=outputFile.index)
+outputFile['prediction'] = pd.Series(Prediction, index=outputFile.index)
 outputFile.drop('index', 1)
-outputFile.to_csv('multiDT.csv', sep=',', index=False, header=True, columns=['bidder_id', 'prediction'])
+outputFile.to_csv('randomForest.csv', sep=',', index=False, header=True, columns=['bidder_id', 'prediction'])
