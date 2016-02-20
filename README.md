@@ -1,9 +1,11 @@
 # Kaggle-Data-Mining-Project-Human-or-Robot
 
 Goal:
+
 	Predict if an online bid is made by a machine or a human, with input data src/features.csv which is the preprocessed table  with 290 attributes for each budder id. 
 
 Introduction:
+
 	Three algorithms are explored to learn the problem: gradient boost, adaboost, and random forest, which give accuracies floating around 90%, 89% and 93%.
 	
 	For random forest, the optimal prediction is achieved with:
